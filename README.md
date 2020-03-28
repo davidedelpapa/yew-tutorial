@@ -1,5 +1,7 @@
 # YEW Megatutorial
 
+![Yew Megatutorial](https://github.com/davidedelpapa/yew-tutorial/tree/master/img/yewtutorial_logo.png)
+
 Yes, I'm humbling joining the fight to widespread [Rust](https://www.rust-lang.org/), with a tutorial on [Yew](https://yew.rs).
 
 ## Part 1: Prerequisites, AKA, installation first
@@ -305,5 +307,7 @@ python -m http.server 8080
 Now let's head our browser to _http://0.0.0.0:8080/_
 
 We can see the value starting from 0 and a button to add to that value.
+
+![final effort](https://github.com/davidedelpapa/yew-tutorial/tree/master/img/tut01_final.jpg)
 
 Mission accomplished!
