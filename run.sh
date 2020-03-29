@@ -14,6 +14,4 @@ run(){
     echo $PID > .serverpid
 }
 
-build
-pack
-run
+build && pack && run
