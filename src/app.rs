@@ -1,3 +1,4 @@
+use rand::prelude::*;
 use yew::prelude::*;
 
 pub enum Msg {
@@ -6,7 +7,7 @@ pub enum Msg {
 }
 
 pub struct App {
-    counter: i64,
+    items: Vec<i64>,
     link: ComponentLink<Self>,
 }
 
@@ -15,13 +16,18 @@ impl Component for App {
     type Properties = ();
 
     fn create(_: Self::Properties, link: ComponentLink<Self>) -> Self {
-        App { link, counter: 0 }
+        App {
+            link,
+            items: Vec::new(),
+        }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::AddOne => self.counter += 1,
-            Msg::RemoveOne => self.counter -= if self.counter > 0 { 1 } else { 0 },
+            Msg::AddOne => self.items.push(random()),
+            Msg::RemoveOne => {
+                self.items.pop();
+            }
         }
         true
     }
@@ -29,7 +35,7 @@ impl Component for App {
     fn view(&self) -> Html {
         html! {
             <div>
-            <p> {"Counter: "} { self.counter }</p>
+            <p> {"Items: "} { format!("{:?}", self.items) }</p>
                 <button onclick=self.link.callback(|_| Msg::AddOne)>{ "Add 1" }</button>
                 <button onclick=self.link.callback(|_| Msg::RemoveOne)>{ "Remove 1" }</button>
             </div>
