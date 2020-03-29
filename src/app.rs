@@ -33,11 +33,29 @@ impl Component for App {
     }
 
     fn view(&self) -> Html {
+        let render_item = |item| {
+            html! {
+                <>
+                    <tr><td>{ item }</td></tr>
+                </>
+            }
+        };
         html! {
-            <div>
-            <p> {"Items: "} { format!("{:?}", self.items) }</p>
-                <button onclick=self.link.callback(|_| Msg::AddOne)>{ "Add 1" }</button>
-                <button onclick=self.link.callback(|_| Msg::RemoveOne)>{ "Remove 1" }</button>
+            <div class="main">
+                <div class="card">
+                    <header>
+                        {"Items: "}
+                    </header>
+                    <div class="card-body">
+                        <table class="primary">
+                            { for self.items.iter().map(render_item) }
+                        </table>
+                    </div>
+                    <footer>
+                        <button onclick=self.link.callback(|_| Msg::AddOne)>{ "Add 1" }</button> {" "}
+                        <button onclick=self.link.callback(|_| Msg::RemoveOne)>{ "Remove 1" }</button>
+                    </footer>
+                </div>
             </div>
         }
     }
