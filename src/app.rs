@@ -1,16 +1,18 @@
 use rand::prelude::*;
 use yew::prelude::*;
-use yew::services::ConsoleService;
+use yew::services::{ConsoleService, DialogService};
 
 pub enum Msg {
     AddOne,
     RemoveOne,
+    About,
 }
 
 pub struct App {
     items: Vec<i64>,
     link: ComponentLink<Self>,
     console: ConsoleService,
+    dialog: DialogService,
 }
 
 impl Component for App {
@@ -22,6 +24,7 @@ impl Component for App {
             link,
             items: Vec::new(),
             console: ConsoleService::new(),
+            dialog: DialogService::new(),
         }
     }
 
@@ -37,9 +40,22 @@ impl Component for App {
                 let removed = self.items.pop();
                 match removed {
                     Some(x) => self.console.warn(format!("Removed {}", x).as_str()),
-                    None => self.console.error("No more elements to remove!"),
+                    None => {
+                        self.console.error("No more elements to remove!");
+                        let user_is_a_monkey = self
+                            .dialog
+                            .confirm("Are you dum? There are no more elements to remove!");
+                        if user_is_a_monkey {
+                            self.dialog.alert("I kenw it!");
+                        } else {
+                            self.dialog.alert(
+                                "Maybe it was an error, there are no more elements to remove!",
+                            );
+                        }
+                    }
                 };
             }
+            Msg::About => self.dialog.alert("Purposeless App"),
         }
         true
     }
@@ -54,9 +70,11 @@ impl Component for App {
         };
         html! {
             <div class="main">
+              <div class="flex three">
                 <div class="card">
                     <header>
-                        {"Items: "}
+                        <h2>{"Items: "}</h2>
+                        <button onclick=self.link.callback(|_| Msg::About)>{ "About" }</button>
                     </header>
                     <div class="card-body">
                         <table class="primary">
@@ -68,6 +86,7 @@ impl Component for App {
                         <button onclick=self.link.callback(|_| Msg::RemoveOne)>{ "Remove 1" }</button>
                     </footer>
                 </div>
+              </div>
             </div>
         }
     }
