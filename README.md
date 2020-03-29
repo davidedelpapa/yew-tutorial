@@ -4,6 +4,11 @@
 
 Yes, I'm humbling joining the fight to widespread [Rust](https://www.rust-lang.org/), with a tutorial on [Yew](https://yew.rs).
 
+You can see the parts of this series here:
+
+- Tut 01 - This article
+- [Tut 02](https://github.com/davidedelpapa/yew-tutorial/wiki/Tut-02) - Extending the example
+
 ## Part 1: Prerequisites, AKA, installation first
 
 This tutorial _pre-se_ does require at least some Rust knowledge.
