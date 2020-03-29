@@ -31,11 +31,14 @@ impl Component for App {
                 let added: i64 = random();
                 self.items.push(added);
                 self.console.log(format!("Added {}", added).as_str());
+                self.console.log("Added 1 elemet to the vec");
             }
             Msg::RemoveOne => {
                 let removed = self.items.pop();
-                self.console
-                    .log(format!("Removed {}", removed.unwrap_or_default()).as_str());
+                match removed {
+                    Some(x) => self.console.warn(format!("Removed {}", x).as_str()),
+                    None => self.console.error("No more elements to remove!"),
+                };
             }
         }
         true
