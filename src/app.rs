@@ -1,5 +1,6 @@
 use rand::prelude::*;
 use yew::prelude::*;
+use yew::services::ConsoleService;
 
 pub enum Msg {
     AddOne,
@@ -9,6 +10,7 @@ pub enum Msg {
 pub struct App {
     items: Vec<i64>,
     link: ComponentLink<Self>,
+    console: ConsoleService,
 }
 
 impl Component for App {
@@ -19,14 +21,21 @@ impl Component for App {
         App {
             link,
             items: Vec::new(),
+            console: ConsoleService::new(),
         }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::AddOne => self.items.push(random()),
+            Msg::AddOne => {
+                let added: i64 = random();
+                self.items.push(added);
+                self.console.log(format!("Added {}", added).as_str());
+            }
             Msg::RemoveOne => {
-                self.items.pop();
+                let removed = self.items.pop();
+                self.console
+                    .log(format!("Removed {}", removed.unwrap_or_default()).as_str());
             }
         }
         true
