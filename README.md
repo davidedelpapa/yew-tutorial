@@ -225,7 +225,7 @@ At the end we return a _true_ menaing that we vant to re-render the component
 #### fn view
 
 Finally we will "see" what our component looks like!
-`view` is incharged of (re-)rendering our component in the doom.
+`view` is incharged of (re-)rendering our component in the DOM.
 
 We can return various types, in this case it is a _Html_ object.
 
