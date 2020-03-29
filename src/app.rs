@@ -45,13 +45,8 @@ impl Component for App {
                         let user_is_a_monkey = self
                             .dialog
                             .confirm("Are you dum? There are no more elements to remove!");
-                        if user_is_a_monkey {
-                            self.dialog.alert("I kenw it!");
-                        } else {
-                            self.dialog.alert(
-                                "Maybe it was an error, there are no more elements to remove!",
-                            );
-                        }
+                        self.console
+                            .debug(format!("Confirm value: {}", user_is_a_monkey).as_str());
                     }
                 };
             }
