@@ -1,18 +1,13 @@
-use rand::prelude::*;
 use yew::prelude::*;
-use yew::services::{ConsoleService, DialogService};
 
 pub enum Msg {
     AddOne,
     RemoveOne,
-    About,
 }
 
 pub struct App {
     items: Vec<i64>,
     link: ComponentLink<Self>,
-    console: ConsoleService,
-    dialog: DialogService,
 }
 
 impl Component for App {
@@ -23,34 +18,17 @@ impl Component for App {
         App {
             link,
             items: Vec::new(),
-            console: ConsoleService::new(),
-            dialog: DialogService::new(),
         }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             Msg::AddOne => {
-                let added: i64 = random();
-                self.items.push(added);
-                self.console.log(format!("Added {}", added).as_str());
-                self.console.log("Added 1 elemet to the vec");
+                self.items.push(1);
             }
             Msg::RemoveOne => {
-                let removed = self.items.pop();
-                match removed {
-                    Some(x) => self.console.warn(format!("Removed {}", x).as_str()),
-                    None => {
-                        self.console.error("No more elements to remove!");
-                        let user_is_a_monkey = self
-                            .dialog
-                            .confirm("Are you dum? There are no more elements to remove!");
-                        self.console
-                            .debug(format!("Confirm value: {}", user_is_a_monkey).as_str());
-                    }
-                };
+                let _ = self.items.pop();
             }
-            Msg::About => self.dialog.alert("Purposeless App"),
         }
         true
     }
@@ -69,7 +47,6 @@ impl Component for App {
                 <div class="card">
                     <header>
                         <h2>{"Items: "}</h2>
-                        <button onclick=self.link.callback(|_| Msg::About)>{ "About" }</button>
                     </header>
                     <div class="card-body">
                         <table class="primary">
