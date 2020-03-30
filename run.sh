@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ -f .serverpid ]; then
+    echo "Server already running, or in an inconsistent state"
+    exit 1
+fi
+
 build(){
     wasm-pack build --target web
 }
