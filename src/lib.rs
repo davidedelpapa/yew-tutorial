@@ -1,5 +1,6 @@
 #![recursion_limit = "256"]
 mod app;
+mod external;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
