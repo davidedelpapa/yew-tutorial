@@ -1,7 +1,6 @@
 #![recursion_limit = "256"]
-mod api;
 mod app;
-mod external;
+mod components;
 use wasm_bindgen::prelude::{wasm_bindgen, JsValue};
 
 #[wasm_bindgen]
