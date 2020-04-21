@@ -1,4 +1,3 @@
-//use crate::external::ExternalService;
 use crate::components::button::Button;
 use yew::prelude::*;
 
