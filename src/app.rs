@@ -39,8 +39,8 @@ impl Component for App {
             <div>
                 <h1>{ "Welcome to Components" }</h1>
                 <p>{ self.counter } </p>
-                <Button onsignal=self.link.callback(|_| Msg::AddOne) title="+1" />
                 <Button onsignal=self.link.callback(|_| Msg::RemoveOne) title="-1" />
+                <Button onsignal=self.link.callback(|_| Msg::AddOne) title="+1" />
             </div>
         }
     }

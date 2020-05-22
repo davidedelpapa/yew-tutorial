@@ -1,0 +1,22 @@
+{
+  "name": "yew-tutorial",
+  "version": "1.0.0",
+  "description": "![](img/yewtutorial_logo.png)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidedelpapa/yew-tutorial.git"
+  },
+  "author": "Davide Del Papa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidedelpapa/yew-tutorial/issues"
+  },
+  "homepage": "https://github.com/davidedelpapa/yew-tutorial#readme",
+  "devDependencies": {
+    "rollup-plugin-livereload": "^1.3.0"
+  }
+}

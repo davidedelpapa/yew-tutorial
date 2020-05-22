@@ -1,4 +1,7 @@
 /target
+/node_modules
 /pkg
 Cargo.lock
+package-lock.json
 .serverpid
+.serverpid.rollup
