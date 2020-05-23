@@ -10,6 +10,9 @@ You can see the parts of this series here, accessible trhough the Wiki:
 - [Tut 02](https://github.com/davidedelpapa/yew-tutorial/wiki/Tut-02) - Extending the example
 - [Tut 03](https://github.com/davidedelpapa/yew-tutorial/wiki/Tut-03) - Services and all
 - [Tut 04](https://github.com/davidedelpapa/yew-tutorial/wiki/Tut-04) - ...and services for all
+- [Tut 04](https://github.com/davidedelpapa/yew-tutorial/wiki/Tut-04) - ...and services for all
+- [Tut 05](https://github.com/davidedelpapa/yew-tutorial/wiki/Tut-05) - Drive through libraries
+- [Tut 06](https://github.com/davidedelpapa/yew-tutorial/wiki/Tut-06) - Custom Custom Custom
 
 ## Installation
 
