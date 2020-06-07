@@ -1,6 +1,7 @@
 /target
 /node_modules
 /pkg
+/.vscode
 Cargo.lock
 package-lock.json
 .serverpid
