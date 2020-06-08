@@ -6,3 +6,4 @@ Cargo.lock
 package-lock.json
 .serverpid
 .serverpid.rollup
+google_oauth2.json
