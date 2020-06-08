@@ -1,4 +1,5 @@
 use crate::components::button::Button;
+use crate::components::employees::Employees;
 use yew::prelude::*;
 
 pub enum Msg {
@@ -45,6 +46,7 @@ impl Component for App {
                 <p>{ self.counter } </p>
                 <Button onsignal=self.link.callback(|_| Msg::RemoveOne) title="-1" />
                 <Button onsignal=self.link.callback(|_| Msg::AddOne) title="+1" />
+                <Employees />
             </div>
         }
     }
